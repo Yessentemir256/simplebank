@@ -13,7 +13,7 @@ func TestTransferTx(t *testing.T) {
 
 	account1 := createRandomAccount(t)
 	account2 := createRandomAccount(t)
-	fmt.Println(">> after", account1.Balance, account2.Balance)
+	fmt.Println(">> before", account1.Balance, account2.Balance)
 
 	// run n concurrenct transfer transaction
 	n := 5
@@ -90,6 +90,7 @@ func TestTransferTx(t *testing.T) {
 		// check accounts' balance
 
 		// TODO check accounts' balance
+		fmt.Println(">>: tx", fromAccount.Balance, toAccount.Balance)
 		diff1 := account1.Balance - fromAccount.Balance
 		diff2 := toAccount.Balance - account2.Balance
 		require.Equal(t, diff1, diff2)
